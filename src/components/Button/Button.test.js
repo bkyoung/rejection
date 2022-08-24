@@ -8,7 +8,7 @@ describe('Button component renders', async assert => {
   {
     const $ = render(<Button title="test" />);
     assert({
-      given: 'A Button component with a prop title="test"',
+      given: 'A Button named "test"',
       should: 'render a button with the word "test"',
       actual: $('.buttonContainer > button').text(),
       expected: 'test'

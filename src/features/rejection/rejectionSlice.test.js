@@ -22,7 +22,7 @@ describe('rejectionReducer', async (assert) => {
     const action = createQuestion({ question: 'question', askee: 'askee' });
     assert({
       given: 'a createQuestion action',
-      should: 'append the new question to the questions array',
+      should: 'add the question to state',
       actual: rejectionReducer(state, action).length,
       expected: 1,
     });
@@ -42,7 +42,7 @@ describe('rejectionReducer', async (assert) => {
     })
     assert({
       given: 'an updateQuestion action',
-      should: 'update the question in the questions array',
+      should: 'update the question in state',
       actual: rejectionReducer(state, action),
       expected: [
         {
@@ -60,8 +60,8 @@ describe('getQuestions selector', async (assert) => {
   {
     const state = { questions: [] }
     assert({
-      given: 'a state containing no questions',
-      should: 'should return an array of length 0',
+      given: 'an empty state',
+      should: 'should return no questions',
       actual: (getQuestions(state)).length,
       expected: 0,
     });
@@ -78,8 +78,8 @@ describe('getQuestions selector', async (assert) => {
       ]
     }
     assert({
-      given: 'a state containing 1 question',
-      should: 'should return an array of length 1',
+      given: 'a state containing questions',
+      should: 'should return those questions',
       actual: (getQuestions(state)).length,
       expected: 1,
     });
@@ -90,7 +90,7 @@ describe('getScore selector', async (assert) => {
   {
     assert({
       given: 'a question status of "Unanswered"',
-      should: 'should return a score of 0',
+      should: 'should be scored 0',
       actual: getScore([
         {
           id: 1,
@@ -105,7 +105,7 @@ describe('getScore selector', async (assert) => {
   {
     assert({
       given: 'a question status of "Accepted"',
-      should: 'should return a score of 1',
+      should: 'should be scored 1',
       actual: getScore([
         {
           id: 1,
@@ -120,7 +120,7 @@ describe('getScore selector', async (assert) => {
   {
     assert({
       given: 'a question status of "Rejected"',
-      should: 'should return a score of 10',
+      should: 'should be scored 10',
       actual: getScore([
         {
           id: 1,

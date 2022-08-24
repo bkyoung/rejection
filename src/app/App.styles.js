@@ -9,12 +9,12 @@ export default css`
           width: 100%;
       }
       
-      .appcontainer h1 {
+      .title {
           font-size: 3rem;
           margin: 0;
       }
       
-      .appcontainer h3 {
+      .subtitle {
           margin: 0;
           line-height: 1.15;
           font-size: 1.1rem;

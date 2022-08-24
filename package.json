@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "riteway -r @babel/register './src/**/*.test.js' | tap-color",
+    "test": "riteway -r @babel/register './src/**/*.test.js' | tap-nirvana",
     "watch": "npm-watch test"
   },
   "dependencies": {
@@ -36,6 +36,7 @@
     "eslint-config-next": "12.2.4",
     "npm-watch": "^0.11.0",
     "riteway": "^6.3.1",
-    "tap-color": "^1.2.0"
+    "tap-color": "^1.2.0",
+    "tap-nirvana": "^1.1.0"
   }
 }

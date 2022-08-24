@@ -23,8 +23,8 @@ const App = ({ title = 'Rejection', subtitle = 'You Have to Lose to Win' } = {})
         {AppStyles}
       </style>
       <div className="appcontainer">
-        <h1>{title}</h1>
-        <h3>{subtitle}</h3>
+        <h1 className="title">{title}</h1>
+        <h3 className="subtitle">{subtitle}</h3>
         <br />
         <Score score={score} />
         <br />

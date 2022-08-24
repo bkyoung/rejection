@@ -11,9 +11,9 @@ export default css`
       color: white;
       border: 1px solid #0070f3;
       border-radius: 4px;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 9px 52px;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 61px;
     }
 
     .acceptRejectButtonGroup {
@@ -28,7 +28,7 @@ export default css`
       color: white;
       border-radius: 4px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 500;
       padding: 6px 10px;
       margin-right: 16px;
     }

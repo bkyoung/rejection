@@ -2,46 +2,42 @@ import css from 'styled-jsx/css';
 
 export default css`
     .questions {
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      border-spacing: 0;
+      border: 1px solid #ABB2B9 ;
+      border-radius: 6px;
       width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.15);
     }
 
-    .questions table {
-      border-collapse: collapse;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      border-spacing: 0;
+    .questions-header {
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
+      border-bottom: 1px solid #ddd;
       width: 100%;
-    }
-    
-    .questions thead>tr:first-child>:first-child { border-top-left-radius: 4px; }
-    .questions thead>tr:first-child>:last-child { border-top-right-radius: 4px; }
-    .questions tbody>tr:last-child>:first-child { border-bottom-left-radius: 4px; }
-    .questions tbody>tr:last-child>:last-child { border-bottom-right-radius: 4px; }
-    
-    .questions tr {
-      line-height: 2.5em;
-    }
-    .questions th {
-      line-height: 2.5em;
-      padding: 8px;
-    }
-
-    .questions td {
-      padding: 8px;
-    }
-
-    .questions tr:nth-child(even){background-color: #f2f2f2;}
-    
-    .questions tr:hover {background-color: #ddd;}
-    
-    .questions th {
-      padding-top: 12px;
-      padding-bottom: 12px;
-      text-align: left;
+      display: flex;
+      justify-content: space-between;
       background-color: #0070f3;
       color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px;
+    }
+
+    .header-block {
+      padding-left: 8px;
+      flex-grow: 1;
+    }
+
+    .p25 {
+      width: 25%;
+    }
+
+    .w125 {
+      width: 125px;
+      flex-grow: 0;
+    }
+
+    .w175 {
+      width: 175px;
+      flex-grow: 0;
     }
 `;
