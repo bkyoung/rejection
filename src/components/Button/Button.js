@@ -3,20 +3,28 @@ import ButtonStyles from './Button.styles.js';
 
 const buttonClasses = {
   default: 'default',
-  accept: 'acceptRejectButtonGroup acceptQuestion',
-  reject: 'acceptRejectButtonGroup rejectQuestion',
+  inverted: 'inverted',
+  anonymous: 'anonymous',
 }
 
-const Button = ({ title, onClick, buttonType = 'default' } = {}) => {
-  const buttonClass = buttonClasses[buttonType];
+const Button = ({ title, ...props } = {}) => {
+  const makeClassName = () => {
+    let { className, buttonType } = props;
+    let buttonClass = buttonClasses[buttonType] || 'default';
+    buttonClass = className ? buttonClass.concat(' ', className) : buttonClass;
+    return `buttonContainer ${buttonClass}`;
+  }
+
+  let { onClick } = props;
+
+  if (!onClick) onClick = () => {};
+  
+  const classNames = makeClassName()
+
   return (
     <>
-      <style jsx>
-        {ButtonStyles}
-      </style>
-      <div className={`buttonContainer ${buttonClass}`}>
-        <button onClick={onClick ? onClick : () => { }}>{title}</button>
-      </div>
+      <style jsx>{ButtonStyles}</style>
+      <button className={classNames} onClick={onClick}>{title}</button>
     </>
   );
 }

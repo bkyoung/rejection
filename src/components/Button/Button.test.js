@@ -10,7 +10,7 @@ describe('Button component renders', async assert => {
     assert({
       given: 'A Button named "test"',
       should: 'render a button with the word "test"',
-      actual: $('.buttonContainer > button').text(),
+      actual: $('.buttonContainer').text(),
       expected: 'test'
     });
   }

@@ -7,13 +7,23 @@ import rejectionReducer, {
 } from './rejectionSlice';
 
 describe('createQuestion action', async (assert) => {
-  assert({
-    given: 'no status',
-    should: 'return a payload with { status: "Unanswered" }',
-    actual: createQuestion({ question: 'question', askee: 'askee' }).payload
-      .status,
-    expected: 'Unanswered',
-  });
+  {
+    assert({
+      given: 'an empty question',
+      should: 'return a payload with { status: "Unanswered" }',
+      actual: createQuestion().payload.status,
+      expected: 'Unanswered',
+    });
+  }
+  {  
+    assert({
+      given: 'no status',
+      should: 'return a payload with { status: "Unanswered" }',
+      actual: createQuestion({ question: 'question', askee: 'askee' }).payload
+        .status,
+      expected: 'Unanswered',
+    });
+  }
 });
 
 describe('rejectionReducer', async (assert) => {

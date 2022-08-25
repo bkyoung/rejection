@@ -1,11 +1,16 @@
-import React from 'react';
-import Head from 'next/head';
-import App from '../src/app/App.js';
-
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Button from '../src/components/Button/Button.js';
 import globalStyles from '../src/styles/globals.styles.js';
 import indexStyles from '../src/styles/index.styles.js';
 
 export default function Index() {
+  const router = useRouter();
+  
+  const handleAnonymousOnClick = () => {
+    router.push('/rejection');
+  };
+
   return (
     <div className="container">
       <style jsx>
@@ -14,15 +19,16 @@ export default function Index() {
       <style jsx>
         {indexStyles}
       </style>
-      <Head>
-        <title>Rejection</title>
-        <meta name="Rejection" content="You have to lose to win" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="main">
-        <App />
-      </main>
+      <div className="login-page">
+        <div className="top-matter">          
+          <h1 className="cursive">In the game of</h1>
+          <h2 className="title">Rejection</h2>
+          <h4 className="subtitle">You gotta lose to win</h4>
+          <span className="centered">
+            <Button title="Let's Play" buttonType="anonymous" onClick={handleAnonymousOnClick} />
+          </span>
+        </div>
+      </div>
     </div>
   )
 }

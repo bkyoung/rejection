@@ -8,14 +8,13 @@ describe('AddQuestion component renders', async assert => {
   const createQuestion = (questionList = []) => (question) => questionList.concat([question]);
   const open = false
   const handleClose = () => open = false;
-  const handleOpen = () => open = true;
   {
     const $ = render(<AddQuestion createQuestion={createQuestion()} />);
     assert({
       given: 'An AddQuestion component',
-      should: 'render a button with the text "Add Question"',
+      should: 'not render a button with the text "Add Question"',
       actual: $('.addQuestionContainer .buttonContainer button').text(),
-      expected: 'Add Question'
+      expected: ''
     });
   }
 });

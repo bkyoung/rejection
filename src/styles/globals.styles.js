@@ -1,12 +1,18 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
+  :root {
+    --primary: #079CEE;
+    --black: #000000;
+    --gray8: #828282;
+  }
+
   html,
   body {
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, 'Stalemate', cursive;
   }
   
   a {

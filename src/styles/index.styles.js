@@ -2,132 +2,66 @@ import css from 'styled-jsx/css';
 
 export default css`
   .container {
-    padding: 0 2rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
   }
 
-  .main {
-    min-height: 100vh;
-    padding: 4rem 0;
-    flex: 1;
+  .login-page {
+    margin: 0;
+    padding: 2rem;
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(1, 111, 243, 0.9);
+    color: #FFFFFF;
   }
 
-  .footer {
+  .top-matter {
     display: flex;
-    flex: 1;
-    padding: 2rem 0;
-    border-top: 1px solid #eaeaea;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-  }
-
-  .footer a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-  }
-
-  .title a {
-    color: #0070f3;
-    text-decoration: none;
-  }
-
-  .title a:hover,
-  .title a:focus,
-  .title a:active {
-    text-decoration: underline;
-  }
-
-  .title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
-  }
-
-  .title,
-  .description {
     text-align: center;
   }
 
-  .description {
-    margin: 4rem 0;
-    line-height: 1.5;
-    font-size: 1.5rem;
+  .cursive {
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'Stalemate', cursive;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
   }
 
-  .code {
-    background: #fafafa;
-    border-radius: 5px;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-      Bitstream Vera Sans Mono, Courier New, monospace;
+  .title{
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: -0.15rem;
   }
 
-  .grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 800px;
-  }
-
-  .card {
-    margin: 1rem;
-    padding: 1.5rem;
-    text-align: left;
-    color: inherit;
-    text-decoration: none;
-    border: 1px solid #eaeaea;
-    border-radius: 10px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-    max-width: 300px;
-  }
-
-  .card:hover,
-  .card:focus,
-  .card:active {
-    color: #0070f3;
-    border-color: #0070f3;
-  }
-
-  .card h2 {
-    margin: 0 0 1rem 0;
-    font-size: 1.5rem;
-  }
-
-  .card p {
-    margin: 0;
+  .subtitle {
+    text-align: center;
     font-size: 1.25rem;
-    line-height: 1.5;
+    font-weight: 300;
+    margin-top: 1rem;
   }
 
-  .logo {
-    height: 1em;
-    margin-left: 0.5rem;
+  .login-options {
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
   }
 
-  @media (max-width: 600px) {
-    .grid {
-      width: 100%;
-      flex-direction: column;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .card,
-    .footer {
-      border-color: #222;
-    }
-    .code {
-      background: #111;
-    }
-    .logo img {
-      filter: invert(1);
-    }
+  .centered {
+    margin-top: 20%;
   }
 `;

@@ -2,16 +2,14 @@ import css from 'styled-jsx/css';
 
 export default css`
     .scoreContainer {
-      width: 100%;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-shrink: 1;
     }
 
     .score {
-      margin: auto;
-      padding: 0px;
-      font-size: 3rem;
-      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 900;
+      letter-spacing: -0.025em;
     }
 `;

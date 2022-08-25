@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css';
 
 export default css`
-    .addQuestionContainer {
+    .updateQuestionContainer {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -16,16 +16,17 @@ export default css`
       display: block;
     }
 
-    .addQuestionModalContainer {
+    .updateQuestionModalContainer {
       position: fixed;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
       z-index: 100;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.5);
     }
-    .addQuestionModal {
+    .updateQuestionModal {
       width: 40%;
       display: flex;
       flex-direction: column;
@@ -35,24 +36,20 @@ export default css`
       padding: 2rem;
       background: white;
       border: 1px solid #ddd;
-      border-radius: .25em;
+      border-radius: 4px;
     }
 
-    .addQuestionModal form {
+    .updateQuestionModal form {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     
-    .addQuestionModal form input {
+    .updateQuestionModal form input, select {
       width: 100%;
       border: 1px solid #ddd;
-      border-radius: .25em;
-      padding: .75em;
-    }
-
-    .close {
-      align-self: flex-end;
+      border-radius: 4px;
+      padding: 12px;
     }
 `;

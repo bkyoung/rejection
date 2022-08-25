@@ -11,12 +11,12 @@ describe('App component renders', async assert => {
     given: 'A title  of "testtitle"',
     should: 'render the heading "testtitle"',
     actual: $('.title').html().trim(),
-    expected: 'testtitle'
+    expected: 'testtitle.'
   });
   assert({
     given: 'A subtitle of "testsubtitle"',
     should: 'render an with the subheading "testsubtitle"',
     actual: $('.subtitle').html().trim(),
-    expected: 'testsubtitle'
+    expected: 'testsubtitle.'
   });
 });

@@ -1,22 +1,22 @@
 import css from 'styled-jsx/css';
 
 export default css`
-      .appcontainer {
+      .app-container {
           display: flex;
           flex-direction: column;
           justify-content: flext-start;
-          align-items: center;
           width: 100%;
+          height: 100vh;
       }
-      
-      .title {
-          font-size: 3rem;
-          margin: 0;
+
+      .app-grid {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        grid-column-gap: 0;
       }
-      
-      .subtitle {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 1.1rem;
-      }      
+
+      .app-content {
+        display: flex;
+        background-color: rgba(248,248,248, 1);
+      }   
 `;
