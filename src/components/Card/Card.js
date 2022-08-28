@@ -18,25 +18,24 @@ const Card = ({ question }) => {
         <div className="questionContainer">
           <h3 className="cardTitle">{question.status}</h3>
           <h4 className="cardSubtitle">by {question.askee}</h4>
-          <br />
-          <>
+          <hr />
+          <div>
             {
-              Object.keys(question).length > 0
-                ? Object.keys(question).map((field, idx) => (
-                  <div className="cardField" key={idx}>
-                    <h5 className="fieldName">{field}</h5><h5 className={`fieldValue ${[field]}`}>{question[field]}</h5>
-                  </div>
-                ))
-                : <></>
+              Object.keys(question).length &&
+              Object.keys(question).map((field, idx) => field !== 'id' && (
+                <div className="cardField" key={idx}>
+                  <h4 className="fieldName">{field}</h4>:<p className={`fieldValue ${[field]}`}>{question[field]}</p>
+                </div>
+              ))
             }
-          </>
-            <UpdateQuestion editQuestion={question} open={open} handleClose={handleClose} />
+          </div>
         </div>
         <br />
         <div className="update">
           <Button buttonType="update" title="Update" onClick={handleOpen} />
         </div>
     </div>
+    <UpdateQuestion editQuestion={question} open={open} handleClose={handleClose} />
     </>
   )
 }

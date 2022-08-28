@@ -12,6 +12,12 @@ export default css`
       transition: all .2s ease-in-out;
     }
 
+    hr {
+      border-top: 1px solid rgba(0, 0, 0, 1);
+      margin-top: 0;
+      margin-bottom: 2em;
+    }
+
     .cardContainer:hover {
       transform: scale(1.02); 
     }
@@ -24,11 +30,12 @@ export default css`
 
     .cardSubtitle {
       margin-top: .5em;
-      margin-bottom: 1em;
+      margin-bottom: .5em;
       font-weight: 500;
     }
 
     .cardField {
+      width: 100%;
       display: inline-flex;
       margin-bottom: .5em;
     }
@@ -41,6 +48,7 @@ export default css`
 
     .fieldName {
       font-weight: 600;
+      text-transform: capitalize;
     }
 
     .fieldValue {
