@@ -4,13 +4,11 @@ import UserStyles from './User.styles.js';
 import { IconUserCircle } from '@tabler/icons';;
 
 const User = ({ user }) => {
-  const { displayName, photoURL } = user
-  console.log(displayName);
+  const { displayName, photoURL } = user;
   return (
     <>
       <style jsx>{UserStyles}</style>
       <div className="user">
-        <h2 className="name">{displayName}</h2>
         <span className="avatar">{isLoggedIn
           ? photoURL
             ? (<div style={{ borderRadius: '50%', overflow: 'hidden', width: '32px', height: '32px' }}>
@@ -26,6 +24,7 @@ const User = ({ user }) => {
             : <IconUserCircle size={32} />
           : <IconUserCircle size={32} />}
         </span>
+        <h2 className="name">{displayName}</h2>
       </div>
     </>
   );

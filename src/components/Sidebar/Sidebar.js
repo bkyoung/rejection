@@ -32,7 +32,7 @@ const Sidebar = ({ user }) => {
   const dispatch = useDispatch();
   const addNewQuestion = ({ question, askee }) => dispatch(createQuestion({ question, askee }));
 
-  const logInUser = ({ id, displayName, email, photoURL }) => dispatch(setUser({ id, displayName, email, photoURL }));
+  const logInUser = ({ uid, displayName, email, photoURL }) => dispatch(setUser({ uid, displayName, email, photoURL }));
   const logOutUser = () => dispatch(unsetUser());
   const loggedIn = useSelector((state) => isLoggedIn(state));
 
@@ -41,8 +41,7 @@ const Sidebar = ({ user }) => {
       const u = await signInWithGooglePopup();
       const { user } = u
       const { uid, displayName, email, photoURL } = user
-      logInUser({ id: uid, displayName, email, photoURL });
-      console.log({ uid, displayName, email, photoURL })
+      logInUser({ uid, displayName, email, photoURL });
     } catch (error) {
       console.log(error);
       alert('There was a problem with log in.  Continuing as Anonymous.');
@@ -83,20 +82,20 @@ const Sidebar = ({ user }) => {
           <SidebarItem
             key={0}
             icon={IconSquarePlus}
-            size={36}
-            stroke={2.25}
+            size={32}
+            stroke={2}
             onClick={handleAddModalOpen}
             className="add-question"
           />
           <p className="sidebar-item-label">New</p>
           <AddQuestion open={addModalOpen} handleClose={handleAddModalClose} dispatch={addNewQuestion} />
         </span>
-        <span>
+        <span className="bottom-matter">
           <SidebarItem
             key={1}
             icon={IconHelp}
-            size={36}
-            stroke={2.25}
+            size={32}
+            stroke={2}
             onClick={handleRulesModalOpen}
             className="rules"
           />
@@ -105,8 +104,8 @@ const Sidebar = ({ user }) => {
           <br />
           <SidebarItem
             key={2}
-            size={36}
-            stroke={2.25}
+            size={32}
+            stroke={2}
             user={user}
             {...icon[loggedIn]}
           />

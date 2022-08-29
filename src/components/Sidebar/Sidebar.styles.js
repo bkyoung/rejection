@@ -2,9 +2,9 @@ import css from 'styled-jsx/css';
 
 export default css`
     .sidebar-container {
-      padding: 2em .5em;
+      padding: 2em 0;
       height: calc(100vh - 48px);
-      width: 80px;
+      width: 64px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -16,13 +16,19 @@ export default css`
 
     .sidebar-item {
       display: flex;
+      align-item: center;
+      margin: auto;
     }
 
     .sidebar-item-label {
       margin-top: 0;
       font-size: 0.75em;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: -0.025em;
+      text-align: center;
+    }
+
+    .bottom-matter {
       text-align: center;
     }
 

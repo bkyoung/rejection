@@ -8,7 +8,7 @@ const unsetUser = createAction(`${ slice }/unsetUser`);
 
 // reducers
 const initialState = {
-    id: "000000000000",
+    uid: "000000000000",
     displayName: "Anonymous",
     email: "anonymous@example.com",
     photoURL: '',

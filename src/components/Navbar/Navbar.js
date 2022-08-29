@@ -13,12 +13,12 @@ const Navbar = ({ title, subtitle, user }) => {
         {NavbarStyles}
       </style>
       <div className="navbar-container">
+        <User user={user} />
         <div className="navbar-title">          
           <h2 className="title">{ title }.</h2>
           <h5 className="subtitle">{ subtitle }.</h5>
         </div>
         <Score score={score} />
-        <User user={user} />
       </div>
     </>
   );

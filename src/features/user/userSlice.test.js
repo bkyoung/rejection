@@ -11,7 +11,7 @@ const withSlice = (state) => ({ [slice]: state });
 
 describe('setUser action', async (assert) => {
   {
-    const user = { id: '1', email: 'test@test.com', displayName: 'test' };
+    const user = { uid: '1', email: 'test@test.com', displayName: 'test' };
     const action = setUser(user);
     const state = withSlice(userReducer({}, action));
 
@@ -25,7 +25,7 @@ describe('setUser action', async (assert) => {
 });
 describe('unsetUser action', async (assert) => {
   {
-    const user = { id: '1', email: 'test@test.com', displayName: 'test' };
+    const user = { uid: '1', email: 'test@test.com', displayName: 'test' };
     const action = unsetUser(user);
     const state = withSlice(userReducer({}, action));
     assert({
@@ -48,7 +48,7 @@ describe('getUser selector', async (assert) => {
     });
   }
   {
-    const user = { id: 1, displayName: 'Test User', email: 'test@user.com', photoURL: '' };
+    const user = { uid: 1, displayName: 'Test User', email: 'test@user.com', photoURL: '' };
     const action = setUser(user);
     const state = withSlice(userReducer({}, action));
     assert({
@@ -61,7 +61,7 @@ describe('getUser selector', async (assert) => {
 });
 describe('isLoggedIn selector', async (assert) => {
   {
-    const user = { id: '1', email: 'test@test.com', displayName: 'test' };
+    const user = { uid: '1', email: 'test@test.com', displayName: 'test' };
     const action = unsetUser(user);
     const state = withSlice(userReducer({}, action));
     assert({
@@ -72,7 +72,7 @@ describe('isLoggedIn selector', async (assert) => {
     });
   }
   {
-    const user = { id: '1', email: 'test@test.com', displayName: 'test' };
+    const user = { uid: '1', email: 'test@test.com', displayName: 'test' };
     const action = setUser(user);
     const state = withSlice(userReducer({}, action));
     assert({

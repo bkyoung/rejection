@@ -15,7 +15,6 @@ let UpdateQuestion = ({ editQuestion, open, handleClose}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('dispatching:', { id, question, askee, status })
     dispatch(updateQuestion({ id, question, askee, status }));
     handleClose();
   };
@@ -49,7 +48,7 @@ let UpdateQuestion = ({ editQuestion, open, handleClose}) => {
               />
               <br />
               <select id="status" name="status" onChange={(e) => setStatus(e.target.value)}>
-                <option selected hidden value={status}>{status}</option>
+                <option defaultValue hidden value={status}>{status}</option>
                 <option value="Accepted">Accepted</option>
                 <option value="Rejected">Rejected</option>
                 <option value="Unanswered">Unanswered</option>

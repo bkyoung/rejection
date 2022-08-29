@@ -12,7 +12,7 @@ export default css`
   .name {
     margin-top: 0;
     margin-bottom: 0;
-    margin-right: 0.75rem;
+    margin-left: 0.75rem;
     font-weight: 900;
     letter-spacing: -0.025em;
   }
