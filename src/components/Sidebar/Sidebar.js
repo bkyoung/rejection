@@ -20,11 +20,11 @@ const SidebarItem = ({ icon, size, stroke, ...props }) => {
 }
 
 const Sidebar = ({ user }) => {
-  const [open, setOpen] = useState(false)
+  const [addModalOpen, setAddModalOpen] = useState(false)
   const [rulesModalOpen, setRulesModalOpen] = useState(false);
 
-  const handleAddModalOpen = () => setOpen(true);
-  const handleAddModalClose = () => setOpen(false);
+  const handleAddModalOpen = () => setAddModalOpen(true);
+  const handleAddModalClose = () => setAddModalOpen(false);
 
   const handleRulesModalOpen = () => setRulesModalOpen(true);
   const handleRulesModalClose = () => setRulesModalOpen(false);
@@ -89,7 +89,7 @@ const Sidebar = ({ user }) => {
             className="add-question"
           />
           <p className="sidebar-item-label">New</p>
-          <AddQuestion open={open} handleClose={handleAddModalClose} dispatch={addNewQuestion} />
+          <AddQuestion open={addModalOpen} handleClose={handleAddModalClose} dispatch={addNewQuestion} />
         </span>
         <span>
           <SidebarItem

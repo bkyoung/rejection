@@ -5,6 +5,7 @@ export default css`
       width: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
     }
 
@@ -32,7 +33,7 @@ export default css`
       align-items: center;
       margin: auto;
       margin-top: 20rem;
-      padding: 2rem;
+      padding: 1rem;
       background: white;
       border: 1px solid #ddd;
       border-radius: .25em;
@@ -52,7 +53,9 @@ export default css`
       padding: .75em;
     }
 
-    .close {
+    .close-button {
+      color: black;
       align-self: flex-end;
+      margin-bottom: 1em;
     }
 `;

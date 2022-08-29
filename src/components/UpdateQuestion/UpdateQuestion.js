@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { IconX } from '@tabler/icons';
 import { updateQuestion } from '../../features/rejection/rejectionSlice.js';
 import Button from '../Button/Button.js';
 import UpdateQuestionStyles from './UpdateQuestion.styles.js';
@@ -27,6 +28,9 @@ let UpdateQuestion = ({ editQuestion, open, handleClose}) => {
       <div className={`${open ? "modalShow" : "modalHide"} updateQuestionModalContainer`}>
         {open && 
         <div className="updateQuestionModal">
+        <span className="close-button">
+          <IconX onClick={() => handleClose()} />
+        </span>
           <form onSubmit={handleSubmit}>
               <input
                 id="question"
@@ -50,6 +54,7 @@ let UpdateQuestion = ({ editQuestion, open, handleClose}) => {
                 <option value="Rejected">Rejected</option>
                 <option value="Unanswered">Unanswered</option>
               </select>
+              <br />
               <br />
               <Button type="submit" title="Update" />
           </form>

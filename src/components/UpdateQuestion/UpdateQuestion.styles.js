@@ -52,4 +52,10 @@ export default css`
       border-radius: 4px;
       padding: 12px;
     }
+
+    .close-button {
+      color: black;
+      align-self: flex-end;
+      margin-bottom: 1em;
+    }
 `;

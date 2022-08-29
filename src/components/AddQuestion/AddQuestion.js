@@ -23,10 +23,10 @@ let AddQuestion = ({ dispatch, open, handleClose}) => {
       <div className={`${open ? "modalShow" : "modalHide"} addQuestionModalContainer`}>
         {open && 
         <div className="addQuestionModal">
+        <span className="close-button">
+          <IconX onClick={() => handleClose()} />
+        </span>
           <form onSubmit={handleSubmit}>
-              <span className="close">
-                <IconX onClick={handleClose} />
-              </span>
               <input
                 id="question"
                 placeholder="Question asked"
