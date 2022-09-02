@@ -2,9 +2,10 @@ import css from 'styled-jsx/css';
 
 export default css`
     .cardContainer {
-      padding: 2em;
       display: flex;
       flex-direction: column;
+      width: 350px;
+      padding: 2em;
       justify-content: space-between;
       border: 1px solid #ABB2B9 ;
       border-radius: 6px;

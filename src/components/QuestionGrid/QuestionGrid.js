@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Card from '../Card/Card.js';
+import { getQuestions } from '../../features/question/questionSlice.js';
+import { getUser, isLoggedIn } from '../../features/user/userSlice.js';
 import QuestionGridStyles from './QuestionGrid.styles.js';
 
-let QuestionGrid = ({ questions }) => {  
+let QuestionGrid = ({ questions }) => {
+  const loggedIn = useSelector(state => isLoggedIn(state));
+  const questionsInState = useSelector(state => getQuestions(state));
+  const user = useSelector(state => getUser(state));
+  useEffect(() => {}, [questions])
   return (
     <>
       <style jsx>
@@ -22,12 +29,9 @@ let QuestionGrid = ({ questions }) => {
           </>
         : <>
             <div className="no-questions">
-              <span className="hint">
-                &#8592; Add new requests
-              </span>
               <span className="nothing-to-display">
                 No Rejections Yet
-            </span>
+              </span>
             </div>
           </>
       }

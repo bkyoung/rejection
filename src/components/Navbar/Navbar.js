@@ -2,11 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Score from '../Score/Score.js';
 import User from '../User/User.js';
-import { getScore } from '../../features/rejection/rejectionSlice';
+import { getScore } from '../../features/question/questionSlice';
+import { getUser } from '../../features/user/userSlice.js';
 import NavbarStyles from './Navbar.styles.js';
 
-const Navbar = ({ title, subtitle, user }) => {
+const Navbar = () => {
   const score = useSelector((state) => getScore(state));
+  const user = useSelector((state) => getUser(state));
   return (
     <>
       <style jsx>
@@ -14,10 +16,6 @@ const Navbar = ({ title, subtitle, user }) => {
       </style>
       <div className="navbar-container">
         <User user={user} />
-        <div className="navbar-title">          
-          <h2 className="title">{ title }.</h2>
-          <h5 className="subtitle">{ subtitle }.</h5>
-        </div>
         <Score score={score} />
       </div>
     </>

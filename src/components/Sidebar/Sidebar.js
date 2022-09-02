@@ -3,9 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IconLogin, IconLogout, IconHelp, IconSquarePlus } from '@tabler/icons';
 import AddQuestion from '../AddQuestion/AddQuestion.js';
 import Rules from '../Rules/Rules.js';
-import { signInWithGooglePopup, signOutUser } from '../../services/firebase.js';
-import { createQuestion } from '../../features/rejection/rejectionSlice.js';
-import { isLoggedIn, setUser, unsetUser } from '../../features/user/userSlice.js';
+import {
+  signInWithGooglePopup,
+  signOutUser,
+} from '../../services/firebase.js';
+import {
+  clearQuestions,
+  createQuestion,
+} from '../../features/question/questionSlice.js';
+import { getUser, isLoggedIn, setUser, unsetUser } from '../../features/user/userSlice.js';
 import SidebarStyles from "./Sidebar.styles.js";
 
 const SidebarItem = ({ icon, size, stroke, ...props }) => {
@@ -13,29 +19,33 @@ const SidebarItem = ({ icon, size, stroke, ...props }) => {
   const defaultClassNames = ["sidebar-item"]
   const classNames = defaultClassNames.concat([className]).join(' ')
   return (
-    <div className={classNames} {...otherProps}>
-      {React.createElement(icon, { size:size, stroke:stroke })}
-    </div>
+      <div className={classNames} {...otherProps}>
+        {React.createElement(icon, { size:size, stroke:stroke })}
+      </div>
   );
-}
+};
 
-const Sidebar = ({ user }) => {
+const Sidebar = () => {
   const [addModalOpen, setAddModalOpen] = useState(false)
   const [rulesModalOpen, setRulesModalOpen] = useState(false);
 
+  const dispatch = useDispatch();
+  const loggedIn = useSelector((state) => isLoggedIn(state));
+  const user = useSelector(state => getUser(state));
+  
+  const addNewQuestion = async ({ question, askee }) => {
+    dispatch(createQuestion({ question, askee }));
+  }
+  const logInUser = async ({ uid, displayName, email, photoURL }) => dispatch(setUser({ uid, displayName, email, photoURL }));
+  const logOutUser = () => {
+    dispatch(unsetUser());
+    dispatch(clearQuestions());
+  }
+
   const handleAddModalOpen = () => setAddModalOpen(true);
   const handleAddModalClose = () => setAddModalOpen(false);
-
   const handleRulesModalOpen = () => setRulesModalOpen(true);
   const handleRulesModalClose = () => setRulesModalOpen(false);
-  
-  const dispatch = useDispatch();
-  const addNewQuestion = ({ question, askee }) => dispatch(createQuestion({ question, askee }));
-
-  const logInUser = ({ uid, displayName, email, photoURL }) => dispatch(setUser({ uid, displayName, email, photoURL }));
-  const logOutUser = () => dispatch(unsetUser());
-  const loggedIn = useSelector((state) => isLoggedIn(state));
-
   const handleLogin = async () => {
     try {
       const u = await signInWithGooglePopup();
@@ -47,7 +57,6 @@ const Sidebar = ({ user }) => {
       alert('There was a problem with log in.  Continuing as Anonymous.');
     }
   };
-
   const handleLogout = async () => {
     try {
       await signOutUser();
@@ -78,7 +87,7 @@ const Sidebar = ({ user }) => {
         {SidebarStyles}
       </style>
       <div className="sidebar-container">
-        <span>
+        <div className="top-matter">
           <SidebarItem
             key={0}
             icon={IconSquarePlus}
@@ -89,8 +98,8 @@ const Sidebar = ({ user }) => {
           />
           <p className="sidebar-item-label">New</p>
           <AddQuestion open={addModalOpen} handleClose={handleAddModalClose} dispatch={addNewQuestion} />
-        </span>
-        <span className="bottom-matter">
+        </div>
+        <div className="bottom-matter">
           <SidebarItem
             key={1}
             icon={IconHelp}
@@ -110,7 +119,7 @@ const Sidebar = ({ user }) => {
             {...icon[loggedIn]}
           />
           <p className="sidebar-item-label">{icon[loggedIn]['label']}</p>
-        </span>
+        </div>
       </div>
     </>
   );

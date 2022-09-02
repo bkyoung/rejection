@@ -15,7 +15,15 @@ describe('Sidebar component renders', async assert => {
       actual: $('.add-question').length,
       expected: 1
     });
-  }  
+  }
+  {
+    assert({
+      given: 'a default sidebar',
+      should: 'have a rules item',
+      actual: $('.rules').length,
+      expected: 1
+    });
+  }
   {
     assert({
       given: 'a default sidebar',

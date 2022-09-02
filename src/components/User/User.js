@@ -3,7 +3,7 @@ import { isLoggedIn } from '../../features/user/userSlice.js';
 import UserStyles from './User.styles.js';
 import { IconUserCircle } from '@tabler/icons';;
 
-const User = ({ user }) => {
+const User = ({ user = { displayName: 'Anonymous', photoURL: '' } } = {}) => {
   const { displayName, photoURL } = user;
   return (
     <>
@@ -11,14 +11,13 @@ const User = ({ user }) => {
       <div className="user">
         <span className="avatar">{isLoggedIn
           ? photoURL
-            ? (<div style={{ borderRadius: '50%', overflow: 'hidden', width: '32px', height: '32px' }}>
+            ? (<div>
                 <Image
                   src={photoURL}
                   objectFit="cover"
                   width="32px"
                   height="32px"
-                  className="avatar-img"
-                  alt=""
+                  alt={displayName}
                 />
               </div>)
             : <IconUserCircle size={32} />

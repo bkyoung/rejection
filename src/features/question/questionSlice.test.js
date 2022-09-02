@@ -1,10 +1,27 @@
 import { describe } from 'riteway';
-import rejectionReducer, {
+import questionReducer, {
+  clearQuestions,
   createQuestion,
   updateQuestion,
   getQuestions,
   getScore,
-} from './rejectionSlice';
+} from './questionSlice';
+const slice = 'question'
+const withSlice = (state) => ({ [slice]: state });
+
+describe('clearQuestions action', async (assert) => {
+  const question = { question: 'is this thing on?', askee: 'sound tech' }
+  const action = createQuestion(question);
+  const state = withSlice(questionReducer([], action));
+  {
+    assert({
+      given: 'an initial list of questions',
+      should: 'return an empty list of questions',
+      actual: withSlice(questionReducer(state, clearQuestions()))[slice],
+      expected: [],
+    });
+  }
+});
 
 describe('createQuestion action', async (assert) => {
   {
@@ -26,14 +43,14 @@ describe('createQuestion action', async (assert) => {
   }
 });
 
-describe('rejectionReducer', async (assert) => {
+describe('questionReducer', async (assert) => {
   {
-    const state = [];
     const action = createQuestion({ question: 'question', askee: 'askee' });
+    const state = withSlice(questionReducer([], action));
     assert({
       given: 'a createQuestion action',
       should: 'add the question to state',
-      actual: rejectionReducer(state, action).length,
+      actual: state[slice].length,
       expected: 1,
     });
   }
@@ -53,7 +70,7 @@ describe('rejectionReducer', async (assert) => {
     assert({
       given: 'an updateQuestion action',
       should: 'update the question in state',
-      actual: rejectionReducer(state, action),
+      actual: questionReducer(state, action),
       expected: [
         {
           id: 1,

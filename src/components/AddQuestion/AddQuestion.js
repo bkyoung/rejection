@@ -3,7 +3,7 @@ import Button from '../Button/Button.js';
 import { IconX } from '@tabler/icons';
 import addQuestionStyles from './AddQuestion.styles.js';
 
-let AddQuestion = ({ dispatch, open, handleClose}) => {
+const AddQuestion = ({ dispatch, open, handleClose}) => {
   const [askee, setAskee] = useState('');
   const [question, setQuestion] = useState('');
 

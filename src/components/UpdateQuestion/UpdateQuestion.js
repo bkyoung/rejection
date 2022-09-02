@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { IconX } from '@tabler/icons';
-import { updateQuestion } from '../../features/rejection/rejectionSlice.js';
+import { updateQuestion } from '../../features/question/questionSlice.js';
 import Button from '../Button/Button.js';
 import UpdateQuestionStyles from './UpdateQuestion.styles.js';
 
@@ -18,7 +18,7 @@ let UpdateQuestion = ({ editQuestion, open, handleClose}) => {
     dispatch(updateQuestion({ id, question, askee, status }));
     handleClose();
   };
-
+  
   return (
     <div className="updateQuestionContainer">
       <style jsx>

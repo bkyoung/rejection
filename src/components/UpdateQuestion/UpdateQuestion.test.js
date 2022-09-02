@@ -4,7 +4,7 @@ import render from 'riteway/render-component';
 import { describe } from 'riteway';
 import store from '../../app/store.js';
 import UpdateQuestion from './UpdateQuestion.js';
-import { createQuestion } from '../../features/rejection/rejectionSlice.js';
+import { createQuestion } from '../../features/question/questionSlice.js';
 
 describe('UpdateQuestion component renders', async assert => {
   const handleClose = () => open = false;

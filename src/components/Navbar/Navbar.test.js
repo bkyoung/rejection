@@ -7,21 +7,21 @@ import Navbar from './Navbar.js';
 
 describe('Navbar component renders', async assert => {
   const user = { id: 1, displayname : 'Test', email: 'test@example.com', photoURL: '' }
-  const $ = render(<Provider store={store}><Navbar title={'testtitle'} subtitle={'testsubtitle'} user={user} /></Provider>);
+  const $ = render(<Provider store={store}><Navbar /></Provider>);
   {
     assert({
-      given: 'A title  of "testtitle"',
-      should: 'render the heading "testtitle"',
-      actual: $('.title').html().trim(),
-      expected: 'testtitle.'
+      given: 'A default navbar with no user logged in',
+      should: 'render with user "Anonymous"',
+      actual: $('.name').text(),
+      expected: 'Anonymous'
     });
   }
   {
     assert({
-      given: 'A subtitle of "testsubtitle"',
-      should: 'render an with the subheading "testsubtitle"',
-      actual: $('.subtitle').html().trim(),
-      expected: 'testsubtitle.'
+      given: 'A default navbar with no user logged in',
+      should: 'render an with a score of 0',
+      actual: $('.score').html().trim(),
+      expected: 'Score: 0'
     });
   }
 });

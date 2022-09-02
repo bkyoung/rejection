@@ -3,7 +3,7 @@ import css from 'styled-jsx/css';
 export default css`
     .navbar-container {
       margin: 0;
-      padding: 10px 20px;
+      padding: 10px 17px;
       height: 64px;
       width: 100%;
       display: flex;

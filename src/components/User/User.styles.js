@@ -19,9 +19,8 @@ export default css`
 
   .avatar {
     border-radius: 50%;
-  }
-
-  .avatar-img {
-    border-radius: 50%;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
   }
 `;
